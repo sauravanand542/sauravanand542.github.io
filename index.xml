@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Saurav Anand</title>
+    <link>https://sauravanand542.github.io/</link>
+    <description>Recent content on Saurav Anand</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 18 Aug 2022 21:57:26 -0500</lastBuildDate><atom:link href="https://sauravanand542.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Projects</title>
+      <link>https://sauravanand542.github.io/projects/</link>
+      <pubDate>Thu, 18 Aug 2022 21:59:45 -0500</pubDate>
+      
+      <guid>https://sauravanand542.github.io/projects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Photography</title>
+      <link>https://sauravanand542.github.io/pictures/photography/</link>
+      <pubDate>Thu, 18 Aug 2022 21:57:26 -0500</pubDate>
+      
+      <guid>https://sauravanand542.github.io/pictures/photography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://sauravanand542.github.io/contact/</link>
+      <pubDate>Thu, 18 Aug 2022 21:56:15 -0500</pubDate>
+      
+      <guid>https://sauravanand542.github.io/contact/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://sauravanand542.github.io/about/</link>
+      <pubDate>Thu, 18 Aug 2022 21:50:16 -0500</pubDate>
+      
+      <guid>https://sauravanand542.github.io/about/</guid>
+      <description>My innate ability to observe patterns and my curiosity to seek out the story behind them led me to become a Data Scientist. In my career, I’ve demonstrated expertise in data visualization (Tableau, Power BI) and statistical modeling/analysis. Using statistics and ML models to build predictive and classification models is the best part for me because it makes the future less unpredictable.
+For team projects, I’ve always tried to place my team and myself out of the comfort zone.</description>
+    </item>
+    
+  </channel>
+</rss>

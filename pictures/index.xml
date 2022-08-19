@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pictures on Saurav Anand</title>
+    <link>https://sauravanand542.github.io/pictures/</link>
+    <description>Recent content in Pictures on Saurav Anand</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 18 Aug 2022 21:57:26 -0500</lastBuildDate><atom:link href="https://sauravanand542.github.io/pictures/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Photography</title>
+      <link>https://sauravanand542.github.io/pictures/photography/</link>
+      <pubDate>Thu, 18 Aug 2022 21:57:26 -0500</pubDate>
+      
+      <guid>https://sauravanand542.github.io/pictures/photography/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
