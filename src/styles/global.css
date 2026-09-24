@@ -184,7 +184,7 @@ a {
 
 .nav-menu a:hover,
 .nav-menu a[aria-current="true"] {
-  color: var(--text);
+  color: var(--accent);
   background: var(--accent-soft);
 }
 
@@ -301,7 +301,8 @@ section[id] {
 
 .roles li {
   color: var(--accent);
-  background: transparent;
+  background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
 }
 
 .actions {
@@ -473,11 +474,12 @@ section[id] {
 }
 
 .project-feature {
-  padding: clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(1.35rem, 3vw, 2.15rem);
   margin-bottom: 1.25rem;
   background:
-    linear-gradient(135deg, var(--accent-soft), transparent 36%),
+    linear-gradient(135deg, var(--accent-soft), transparent 42%),
     var(--card);
+  box-shadow: inset 4px 0 0 var(--accent), var(--shadow);
 }
 
 .project-kicker {
@@ -504,11 +506,16 @@ section[id] {
 
 .project-card:hover,
 .project-feature:hover {
-  border-color: var(--line-strong);
+  border-color: var(--accent);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.28);
+}
+
+.project-feature:hover {
+  box-shadow: inset 4px 0 0 var(--accent), 0 22px 44px rgba(0, 0, 0, 0.28);
 }
 
 .project-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
 }
 
 .project-meta,
@@ -593,7 +600,9 @@ section[id] {
 .card-links a {
   color: var(--accent);
   font-weight: 630;
-  text-underline-offset: 0.18em;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
 }
 
 .card-links a:hover {
@@ -742,6 +751,14 @@ section[id] {
   }
 }
 
+@media (max-width: 899px) {
+  .monogram {
+    aspect-ratio: 2.6;
+    max-height: 7.5rem;
+    font-size: 3.4rem;
+  }
+}
+
 @media (min-width: 900px) {
   .hero-grid {
     grid-template-columns: minmax(0, 1.45fr) minmax(16rem, 0.72fr);
@@ -751,8 +768,9 @@ section[id] {
 
   .hero {
     min-height: calc(100svh - var(--header-h));
-    display: grid;
+    display: flex;
     align-items: center;
+    padding-block: 2.5rem 3rem;
   }
 }
 
@@ -787,12 +805,18 @@ section[id] {
 
   .rise,
   .reveal,
-  .reveal.is-in,
-  .project-card,
-  .button-primary {
+  .reveal.is-in {
     animation: none;
     transition: none;
     transform: none;
     opacity: 1;
+  }
+
+  .project-card,
+  .project-card:hover,
+  .button-primary,
+  .button-primary:hover {
+    transition: none;
+    transform: none;
   }
 }
