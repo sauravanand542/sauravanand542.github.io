@@ -13,12 +13,19 @@ const asOf = formatFactsDate(factsAsOf);
       </p>
       <h1 id="hero-heading" class="rise rise-2">{profile.greeting}</h1>
       <p class="headline rise rise-3">{profile.headline}</p>
-      <ul class="roles rise rise-4" aria-label="Areas covered by the public repositories">
+      <ul class="roles rise rise-4" aria-label="Focus areas">
         {profile.roles.map((role) => <li>{role}</li>)}
       </ul>
+      <p class="availability rise rise-5">{profile.availability}</p>
       <div class="actions rise rise-5">
         <a class="button button-primary" href="#projects">View projects</a>
-        <a class="button button-secondary" href={profile.githubUrl} rel="me">GitHub profile</a>
+        {
+          profile.links.map((link) => (
+            <a class="button button-secondary" href={link.href} rel="me">
+              {link.label}
+            </a>
+          ))
+        }
       </div>
     </div>
     <figure class="portrait rise rise-4">
@@ -27,9 +34,10 @@ const asOf = formatFactsDate(factsAsOf);
         <strong>{profile.name}</strong>
         <p>{profile.handleLabel}</p>
         <ul class="fact-list">
+          <li>Based in <span>{profile.location}</span></li>
           <li>GitHub since <span>{joined}</span></li>
           <li><span>{profile.publicRepos}</span> public repositories</li>
-          <li>Profile read <span>{asOf}</span></li>
+          <li>GitHub profile read <span>{asOf}</span></li>
         </ul>
       </figcaption>
     </figure>

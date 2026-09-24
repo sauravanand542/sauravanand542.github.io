@@ -1,0 +1,63 @@
+---
+import type { Project } from "../data/profile";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<p class="project-summary">{project.summary}</p>
+{
+  project.tags.length > 0 && (
+    <div class="tech-block">
+      <p class="tech-label">Technologies</p>
+      <ul class="tags" aria-label={`${project.title} technologies`}>
+        {project.tags.map((tag) => (
+          <li class="tag">{tag}</li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+{
+  project.points && project.points.length > 0 && (
+    <dl class="project-points">
+      {project.points.map((point) => (
+        <div>
+          <dt>{point.label}</dt>
+          <dd>{point.text}</dd>
+        </div>
+      ))}
+    </dl>
+  )
+}
+{
+  project.demonstrated && (
+    <p class="role-line">
+      <span>Role / skills demonstrated</span>
+      {project.demonstrated}
+    </p>
+  )
+}
+<p class="card-links">
+  <a href={project.repo}>
+    Repository<span class="sr-only"> for {project.title}</span>
+  </a>
+  {
+    project.homepage && (
+      <a href={project.homepage}>
+        Live demo<span class="sr-only"> for {project.title}</span>
+      </a>
+    )
+  }
+  {
+    project.links?.map((link) => (
+      <a href={link.href}>
+        {link.label}
+        <span class="sr-only"> for {project.title}</span>
+      </a>
+    ))
+  }
+</p>
