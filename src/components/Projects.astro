@@ -1,0 +1,119 @@
+---
+import { factsAsOf, formatFactsDate, profile, type Project } from "../data/profile";
+
+const projects = profile.projects;
+const featured = projects.find((project) => project.featured);
+const rest = projects.filter((project) => !project.featured);
+const asOf = formatFactsDate(factsAsOf);
+
+function countLabel(project: Project): string | undefined {
+  const parts: string[] = [];
+  if (typeof project.stars === "number") {
+    parts.push(`${project.stars} ${project.stars === 1 ? "star" : "stars"}`);
+  }
+  if (typeof project.forks === "number" && project.forks > 0) {
+    parts.push(`${project.forks} ${project.forks === 1 ? "fork" : "forks"}`);
+  }
+  if (parts.length === 0) return undefined;
+  return `${parts.join(" · ")} on the GitHub API, ${asOf}`;
+}
+---
+
+<section class="section" id="projects" aria-labelledby="projects-heading">
+  <div class="wrap">
+    <header class="section-head" data-reveal>
+      <p class="kicker">Projects</p>
+      <h2 id="projects-heading">Selected repositories</h2>
+      <p class="section-intro">
+        Six public repositories. Descriptions follow each README and the code in the repo.
+        Star and fork counts were read from the GitHub API on {asOf}. A card with no count had none that day.
+      </p>
+    </header>
+
+    {
+      featured && (
+        <article class="project-feature" data-reveal>
+          <p class="project-kicker">Featured</p>
+          <h3>{featured.title}</h3>
+          <p class="project-meta">
+            <span class="language">{featured.language}</span>
+            {featured.license && <span>{featured.license}</span>}
+            {countLabel(featured) && <span>{countLabel(featured)}</span>}
+          </p>
+          <p class="project-summary">{featured.summary}</p>
+          {featured.highlights && featured.highlights.length > 0 && (
+            <ul class="highlights">
+              {featured.highlights.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          )}
+          <ul class="tags" aria-label={`${featured.title} stack`}>
+            {featured.tags.map((tag) => (
+              <li class="tag">{tag}</li>
+            ))}
+          </ul>
+          <p class="card-links">
+            <a href={featured.repo}>
+              Repository<span class="sr-only"> for {featured.title}</span>
+            </a>
+            {featured.homepage && (
+              <a href={featured.homepage}>
+                Live demo<span class="sr-only"> for {featured.title}</span>
+              </a>
+            )}
+            {featured.links?.map((link) => (
+              <a href={link.href}>
+                {link.label}
+                <span class="sr-only"> for {featured.title}</span>
+              </a>
+            ))}
+          </p>
+        </article>
+      )
+    }
+
+    <div class="grid gap-5 md:grid-cols-2">
+      {
+        rest.map((project, index) => (
+          <article class="project-card" data-reveal style={`--reveal-delay: ${index * 70}ms`}>
+            <h3>{project.title}</h3>
+            <p class="project-meta">
+              <span class="language">{project.language}</span>
+              {countLabel(project) && <span>{countLabel(project)}</span>}
+            </p>
+            <p class="project-summary">{project.summary}</p>
+            {project.highlights && project.highlights.length > 0 && (
+              <ul class="highlights">
+                {project.highlights.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            )}
+            <ul class="tags" aria-label={`${project.title} stack`}>
+              {project.tags.map((tag) => (
+                <li class="tag">{tag}</li>
+              ))}
+            </ul>
+            <p class="card-links">
+              <a href={project.repo}>
+                Repository<span class="sr-only"> for {project.title}</span>
+              </a>
+              {project.homepage && (
+                <a href={project.homepage}>
+                  Live demo<span class="sr-only"> for {project.title}</span>
+                </a>
+              )}
+              {project.links?.map((link) => (
+                <a href={link.href}>
+                  {link.label}
+                  <span class="sr-only"> for {project.title}</span>
+                </a>
+              ))}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

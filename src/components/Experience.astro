@@ -1,0 +1,38 @@
+---
+import { profile } from "../data/profile";
+
+const items = profile.experience;
+---
+
+{
+  items.length > 0 && (
+    <section class="section" id="experience" aria-labelledby="experience-heading">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <p class="kicker">Experience</p>
+          <h2 id="experience-heading">Experience</h2>
+        </header>
+        <ol class="timeline">
+          {items.map((item, index) => (
+            <li class="timeline-card" data-reveal style={`--reveal-delay: ${index * 60}ms`}>
+              <p class="when">
+                {item.start} — {item.end}
+                {item.location ? ` · ${item.location}` : ""}
+              </p>
+              <h3>{item.role}</h3>
+              <p class="org">{item.organization}</p>
+              <p class="project-summary">{item.summary}</p>
+              {item.highlights && item.highlights.length > 0 && (
+                <ul class="highlights">
+                  {item.highlights.map((highlight) => (
+                    <li>{highlight}</li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  )
+}

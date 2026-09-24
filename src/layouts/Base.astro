@@ -1,0 +1,90 @@
+---
+import "@fontsource-variable/outfit/wght.css";
+import "@fontsource-variable/fraunces/wght.css";
+import "@fontsource-variable/fraunces/wght-italic.css";
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import { profile } from "../data/profile";
+
+interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+  sectionNav?: boolean;
+}
+
+const {
+  title = `${profile.name} · Data science, machine learning, and AI tooling`,
+  description = profile.metaDescription,
+  path = "/",
+  sectionNav = true,
+} = Astro.props;
+
+const canonical = new URL(path, profile.siteUrl).href;
+const image = new URL("/og.png", profile.siteUrl).href;
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  url: profile.siteUrl,
+  sameAs: [profile.githubUrl],
+};
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={profile.name} />
+    <meta name="theme-color" content="#100e0c" />
+    <script is:inline>
+      (function () {
+        var theme = "dark";
+        try {
+          var stored = localStorage.getItem("theme");
+          if (stored === "light" || stored === "dark") theme = stored;
+        } catch (error) {}
+        var root = document.documentElement;
+        root.setAttribute("data-theme", theme);
+        root.style.colorScheme = theme;
+        root.classList.add("js");
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", theme === "light" ? "#f3eee6" : "#100e0c");
+      })();
+    </script>
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content={`${profile.name} — ${profile.headline}`} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={`${profile.name} — ${profile.headline}`} />
+    <script type="application/ld+json" set:html={JSON.stringify(person)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Nav sectionNav={sectionNav} />
+    <slot />
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>© {new Date().getFullYear()} {profile.name}</p>
+        <p>
+          <a href={profile.githubUrl} rel="me">{profile.handleLabel}</a>
+        </p>
+      </div>
+    </footer>
+    <script>
+      import "../scripts/site.ts";
+    </script>
+  </body>
+</html>
