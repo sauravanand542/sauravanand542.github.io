@@ -1,0 +1,27 @@
+---
+import { profile } from "../data/profile";
+
+const items = profile.certifications;
+---
+
+{
+  items.length > 0 && (
+    <section class="section" id="certifications" aria-labelledby="certifications-heading">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <p class="kicker">Certifications</p>
+          <h2 id="certifications-heading">Certifications</h2>
+        </header>
+        <ul class="record-list">
+          {items.map((item) => (
+            <li class="record-card" data-reveal>
+              {item.year && <p class="when">{item.year}</p>}
+              <h3>{item.name}</h3>
+              {item.issuer && <p class="org">{item.issuer}</p>}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}

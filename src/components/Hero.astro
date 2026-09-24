@@ -1,0 +1,37 @@
+---
+import { factsAsOf, formatFactsDate, profile } from "../data/profile";
+
+const joined = formatFactsDate(profile.githubJoined);
+const asOf = formatFactsDate(factsAsOf);
+---
+
+<section class="hero" id="top" aria-labelledby="hero-heading">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="rise">
+        <a class="handle-link" href={profile.githubUrl} rel="me">{profile.handleLabel}</a>
+      </p>
+      <h1 id="hero-heading" class="rise rise-2">{profile.greeting}</h1>
+      <p class="headline rise rise-3">{profile.headline}</p>
+      <ul class="roles rise rise-4" aria-label="Areas covered by the public repositories">
+        {profile.roles.map((role) => <li>{role}</li>)}
+      </ul>
+      <div class="actions rise rise-5">
+        <a class="button button-primary" href="#projects">View projects</a>
+        <a class="button button-secondary" href={profile.githubUrl} rel="me">GitHub profile</a>
+      </div>
+    </div>
+    <figure class="portrait rise rise-4">
+      <div class="monogram" aria-hidden="true">SA</div>
+      <figcaption>
+        <strong>{profile.name}</strong>
+        <p>{profile.handleLabel}</p>
+        <ul class="fact-list">
+          <li>GitHub since <span>{joined}</span></li>
+          <li><span>{profile.publicRepos}</span> public repositories</li>
+          <li>Profile read <span>{asOf}</span></li>
+        </ul>
+      </figcaption>
+    </figure>
+  </div>
+</section>

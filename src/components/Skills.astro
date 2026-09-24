@@ -1,0 +1,33 @@
+---
+import { profile } from "../data/profile";
+
+const groups = profile.skills;
+---
+
+{
+  groups.length > 0 && (
+    <section class="section" id="skills" aria-labelledby="skills-heading">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <p class="kicker">Skills</p>
+          <h2 id="skills-heading">Stack from the repos</h2>
+          <p class="section-intro">
+            Languages, libraries, and tools that the public repositories import or call.
+          </p>
+        </header>
+        <div class="grid gap-5 md:grid-cols-2">
+          {groups.map((group, index) => (
+            <article class="skill-card" data-reveal style={`--reveal-delay: ${index * 70}ms`}>
+              <h3>{group.title}</h3>
+              <ul class="tags" aria-label={group.title}>
+                {group.items.map((item) => (
+                  <li class="tag">{item}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

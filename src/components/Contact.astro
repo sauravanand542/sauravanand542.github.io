@@ -1,0 +1,26 @@
+---
+import { profile } from "../data/profile";
+---
+
+<section class="section" id="contact" aria-labelledby="contact-heading">
+  <div class="wrap">
+    <div class="contact-panel" data-reveal>
+      <p class="kicker">Contact</p>
+      <h2 id="contact-heading">Find the work on GitHub</h2>
+      <p>
+        The public profile for {profile.name} is {profile.handleLabel}. That is the contact
+        listed on the account.
+      </p>
+      <div class="contact-links">
+        {
+          profile.links.map((link) => (
+            <a class="contact-link" href={link.href} rel="me">
+              {link.label}
+              <span class="sr-only"> — {link.href.replace(/^https?:\/\//, "")}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

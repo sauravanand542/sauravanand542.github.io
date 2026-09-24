@@ -1,0 +1,59 @@
+---
+import { navItems, profile } from "../data/profile";
+
+interface Props {
+  sectionNav?: boolean;
+}
+
+const { sectionNav = true } = Astro.props;
+const items = sectionNav ? navItems() : [];
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href={sectionNav ? "#top" : "/"}>{profile.name}</a>
+    {
+      sectionNav ? (
+        <button
+          id="nav-toggle"
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          Menu
+        </button>
+        <ul id="nav-menu" class="nav-menu">
+          {items.map((item) => (
+            <li>
+              <a href={`#${item.id}`}>{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <a class="contact-link" href="/">Home</a>
+      )
+    }
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+        <path
+          d="M12 3v2.2M12 18.8V21M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M3 12h2.2M18.8 12H21M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"></path>
+      </svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M15.5 3.5a8.2 8.2 0 1 0 5 12.2A7.2 7.2 0 0 1 15.5 3.5z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linejoin="round"></path>
+      </svg>
+      <span class="theme-toggle-label when-dark">Light</span>
+      <span class="theme-toggle-label when-light">Dark</span>
+    </button>
+  </div>
+</header>
