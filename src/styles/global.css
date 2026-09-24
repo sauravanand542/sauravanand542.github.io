@@ -843,6 +843,22 @@ section[id] {
   }
 }
 
+@media (max-width: 380px) {
+  .header-inner {
+    flex-wrap: nowrap;
+    gap: 0.45rem;
+  }
+
+  .theme-toggle-label {
+    display: none;
+  }
+
+  .theme-toggle,
+  .nav-toggle {
+    padding-inline: 0.55rem;
+  }
+}
+
 @media (max-width: 760px) {
   html.js .nav-toggle {
     display: inline-flex;
