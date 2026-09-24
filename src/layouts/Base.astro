@@ -14,7 +14,7 @@ interface Props {
 }
 
 const {
-  title = `${profile.name} · Data science, machine learning, and AI tooling`,
+  title = `${profile.name} · Data engineer`,
   description = profile.metaDescription,
   path = "/",
   sectionNav = true,
@@ -27,7 +27,14 @@ const person = {
   "@type": "Person",
   name: profile.name,
   url: profile.siteUrl,
-  sameAs: [profile.githubUrl],
+  jobTitle: "Data Engineer",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Carteret",
+    addressRegion: "NJ",
+    addressCountry: "US",
+  },
+  sameAs: profile.links.map((link) => link.href),
 };
 ---
 
@@ -78,8 +85,14 @@ const person = {
     <footer class="site-footer">
       <div class="wrap footer-inner">
         <p>© {new Date().getFullYear()} {profile.name}</p>
-        <p>
-          <a href={profile.githubUrl} rel="me">{profile.handleLabel}</a>
+        <p class="footer-links">
+          {
+            profile.links.map((link) => (
+              <a href={link.href} rel="me">
+                {link.label}
+              </a>
+            ))
+          }
         </p>
       </div>
     </footer>

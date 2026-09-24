@@ -17,7 +17,7 @@ The dev server prints a local URL. `npm run build` writes the static site to `di
 
 ## Edit the content
 
-All personal content lives in [`src/data/profile.ts`](src/data/profile.ts): name, handle, headline, about, links, skills, and projects. `experience`, `education`, and `certifications` are empty arrays. Add an object to one of them and that section (plus its nav link) appears on the next build. Leave the array empty and the section stays hidden.
+All personal content lives in [`src/data/profile.ts`](src/data/profile.ts): name, handle, headline, about, links, skills, projects, experience, and education. `certifications` is an empty array. Add an object to an empty section and that section (plus its nav link) appears on the next build. Leave the array empty and the section stays hidden.
 
 A comment at the top of the file lists the object shapes. Set a project’s `homepage` only when the GitHub repository lists a homepage; that is what shows a live-demo link. Star counts, when present, are labeled with `factsAsOf`.
 

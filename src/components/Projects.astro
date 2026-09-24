@@ -1,4 +1,5 @@
 ---
+import ProjectDetails from "./ProjectDetails.astro";
 import { factsAsOf, formatFactsDate, profile, type Project } from "../data/profile";
 
 const projects = profile.projects;
@@ -25,7 +26,7 @@ function countLabel(project: Project): string | undefined {
       <p class="kicker">Projects</p>
       <h2 id="projects-heading">Selected repositories</h2>
       <p class="section-intro">
-        Six public repositories. Descriptions follow each README and the code in the repo.
+        Six public repositories, written as short briefs: what the work is for, how it was built, and what it produced.
         Star and fork counts were read from the GitHub API on {asOf}. A card with no count had none that day.
       </p>
     </header>
@@ -40,35 +41,7 @@ function countLabel(project: Project): string | undefined {
             {featured.license && <span>{featured.license}</span>}
             {countLabel(featured) && <span>{countLabel(featured)}</span>}
           </p>
-          <p class="project-summary">{featured.summary}</p>
-          {featured.highlights && featured.highlights.length > 0 && (
-            <ul class="highlights">
-              {featured.highlights.map((item) => (
-                <li>{item}</li>
-              ))}
-            </ul>
-          )}
-          <ul class="tags" aria-label={`${featured.title} stack`}>
-            {featured.tags.map((tag) => (
-              <li class="tag">{tag}</li>
-            ))}
-          </ul>
-          <p class="card-links">
-            <a href={featured.repo}>
-              Repository<span class="sr-only"> for {featured.title}</span>
-            </a>
-            {featured.homepage && (
-              <a href={featured.homepage}>
-                Live demo<span class="sr-only"> for {featured.title}</span>
-              </a>
-            )}
-            {featured.links?.map((link) => (
-              <a href={link.href}>
-                {link.label}
-                <span class="sr-only"> for {featured.title}</span>
-              </a>
-            ))}
-          </p>
+          <ProjectDetails project={featured} />
         </article>
       )
     }
@@ -82,35 +55,7 @@ function countLabel(project: Project): string | undefined {
               <span class="language">{project.language}</span>
               {countLabel(project) && <span>{countLabel(project)}</span>}
             </p>
-            <p class="project-summary">{project.summary}</p>
-            {project.highlights && project.highlights.length > 0 && (
-              <ul class="highlights">
-                {project.highlights.map((item) => (
-                  <li>{item}</li>
-                ))}
-              </ul>
-            )}
-            <ul class="tags" aria-label={`${project.title} stack`}>
-              {project.tags.map((tag) => (
-                <li class="tag">{tag}</li>
-              ))}
-            </ul>
-            <p class="card-links">
-              <a href={project.repo}>
-                Repository<span class="sr-only"> for {project.title}</span>
-              </a>
-              {project.homepage && (
-                <a href={project.homepage}>
-                  Live demo<span class="sr-only"> for {project.title}</span>
-                </a>
-              )}
-              {project.links?.map((link) => (
-                <a href={link.href}>
-                  {link.label}
-                  <span class="sr-only"> for {project.title}</span>
-                </a>
-              ))}
-            </p>
+            <ProjectDetails project={project} />
           </article>
         ))
       }

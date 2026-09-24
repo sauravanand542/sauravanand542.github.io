@@ -29,6 +29,13 @@ const items = profile.experience;
                   ))}
                 </ul>
               )}
+              {item.tags && item.tags.length > 0 && (
+                <ul class="tags" aria-label={`Tools used as ${item.role} at ${item.organization}`}>
+                  {item.tags.map((tag) => (
+                    <li class="tag">{tag}</li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ol>
