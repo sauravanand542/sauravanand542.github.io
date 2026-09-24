@@ -1,216 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Saurav Anand</title>
     <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://cdn.jsdelivr.net/; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
-
-
-
-
-<meta name="author" content="Saurav Anand">
-<meta name="description" content="Saurav Anand&#39;s personal website">
-<meta name="keywords" content="blog,developer,personal">
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Saurav Anand"/>
-<meta name="twitter:description" content="Saurav Anand&#39;s personal website"/>
-
-<meta property="og:title" content="Saurav Anand" />
-<meta property="og:description" content="Saurav Anand&#39;s personal website" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://sauravanand542.github.io/" />
-
-
-
-
-
-<link rel="canonical" href="https://sauravanand542.github.io/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.c4d7e93a158eda5a65b3df343745d2092a0a1e2170feeec909b8a89443903c6a.css" integrity="sha256-xNfpOhWO2lpls980N0XSCSoKHiFw/u7JCbiolEOQPGo=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-  
-    
-    
-    <link rel="stylesheet" href="/css/coder-dark.min.39e41a7f16bdf8cb16e43cae7d714fa1016f1d2d2898a5b3f27f42c9979204e2.css" integrity="sha256-OeQafxa9&#43;MsW5DyufXFPoQFvHS0omKWz8n9CyZeSBOI=" crossorigin="anonymous" media="screen" />
-  
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Saurav Anand" />
-
-
-<meta name="generator" content="Hugo 0.101.0" />
-
-
-
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var theme = "light";
+        try {
+          var stored = localStorage.getItem("theme");
+          if (stored === "light" || stored === "dark") theme = stored;
+          else if (window.matchMedia("(prefers-color-scheme: dark)").matches) theme = "dark";
+        } catch (error) {
+          if (window.matchMedia("(prefers-color-scheme: dark)").matches) theme = "dark";
+        }
+        var root = document.documentElement;
+        root.setAttribute("data-theme", theme);
+        root.classList.add("js");
+      })();
+    </script>
+    <title>Saurav Anand · Data science, ML, and AI tooling</title>
+    <meta name="description" content="Portfolio of Saurav Anand (@sauravanand542): Python, Jupyter, and R projects in data science, machine learning, bioinformatics, and AI tooling.">
+    <meta name="author" content="Saurav Anand">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#121614" media="(prefers-color-scheme: dark)">
+    <link rel="canonical" href="https://sauravanand542.github.io/">
+    <meta property="og:title" content="Saurav Anand">
+    <meta property="og:description" content="Python projects in data science, machine learning, bioinformatics, and AI tooling.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sauravanand542.github.io/">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Saurav Anand">
+    <meta name="twitter:description" content="Python projects in data science, machine learning, bioinformatics, and AI tooling.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Saurav Anand",
+        "url": "https://sauravanand542.github.io/",
+        "sameAs": ["https://github.com/sauravanand542"]
+      }
+    </script>
   </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="#top">Saurav Anand</a>
+        <div class="header-tools">
+          <nav class="site-nav" aria-label="Primary">
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+            <span class="theme-label">Dark theme</span>
+          </button>
+        </div>
+      </div>
+    </header>
 
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-heading">
+        <div class="wrap">
+          <p class="kicker"><a href="https://github.com/sauravanand542" rel="me">GitHub @sauravanand542</a></p>
+          <h1 id="hero-heading">Saurav Anand</h1>
+          <p class="tagline">Python, data science, machine learning, bioinformatics, and AI tooling.</p>
+          <p class="hero-lead">A portfolio of the public repositories under this GitHub account: analysis notebooks, an RNA-seq pipeline, and AI tools.</p>
+          <div class="actions">
+            <a class="button" href="#projects">View projects</a>
+            <a class="button button-secondary" href="https://github.com/sauravanand542" rel="me">GitHub profile</a>
+          </div>
+        </div>
+      </section>
 
+      <section class="about" id="about" aria-labelledby="about-heading">
+        <div class="wrap">
+          <h2 class="section-heading" id="about-heading">About</h2>
+          <p>Saurav Anand publishes on GitHub as @sauravanand542. The public repositories are Python, Jupyter Notebook, and R projects in data science and machine learning, plus bioinformatics and AI tooling.</p>
+          <p>They include an RNA-seq pipeline that tests genes with OLS regression, notebooks on job listings, a Fetch Rewards SQL assessment, and Lending Club and Yelp analyses. AI work covers a FastAPI restaurant host built with OpenAI and Twilio, and codebase-md, a command-line tool that writes project-context files for AI coding assistants.</p>
+        </div>
+      </section>
 
+      <!--
+        Repository metadata fetched from the GitHub REST API on 2026-09-24.
+        Stars: codebase-md 3; restaurant-ai-host 0; rna_seq_pipeline 0;
+        Fetch-rewards-assessment 0; Job-salary-prediction 0; Data-Analytics-Projects 0.
+        Descriptions and topics are the API values when the repo has them.
+        Data-Analytics-Projects reported no description, topics, or primary language;
+        the summary and R Markdown label come from the .Rmd files in that repo.
+      -->
+      <section class="projects" id="projects" aria-labelledby="projects-heading">
+        <div class="wrap">
+          <h2 class="section-heading" id="projects-heading">Projects</h2>
+          <p>One card per repository. Each title links to the GitHub repo. Descriptions, languages, and topics come from the repository. Star counts were read from the GitHub API on 24 September 2026.</p>
+          <div class="project-grid">
+            <article class="project">
+              <p class="project-meta">
+                <span class="language">Python</span>
+                <span class="stars">3 stars</span>
+              </p>
+              <h3>
+                <a href="https://github.com/sauravanand542/codebase-md">codebase-md<span class="visually-hidden"> on GitHub</span></a>
+              </h3>
+              <p class="project-desc">The universal project brain that works with every AI coding tool.</p>
+              <ul class="topics" aria-label="codebase-md topics">
+                <li>ai</li>
+                <li>claude</li>
+                <li>cli</li>
+                <li>code-generation</li>
+                <li>codex</li>
+                <li>cursor</li>
+                <li>developer-tools</li>
+                <li>hacktoberfest</li>
+                <li>llm</li>
+                <li>python</li>
+                <li>vibe-coding</li>
+                <li>windsurf</li>
+              </ul>
+            </article>
 
+            <article class="project">
+              <p class="project-meta">
+                <span class="language">Python</span>
+                <span class="stars">0 stars</span>
+              </p>
+              <h3>
+                <a href="https://github.com/sauravanand542/restaurant-ai-host">restaurant-ai-host<span class="visually-hidden"> on GitHub</span></a>
+              </h3>
+              <p class="project-desc">FastAPI voice hostess that handles reservations and takeout orders with OpenAI (GPT-3.5) and sends SMS confirmations through Twilio.</p>
+            </article>
 
+            <article class="project">
+              <p class="project-meta">
+                <span class="language">Python</span>
+                <span class="stars">0 stars</span>
+              </p>
+              <h3>
+                <a href="https://github.com/sauravanand542/rna_seq_pipeline">rna_seq_pipeline<span class="visually-hidden"> on GitHub</span></a>
+              </h3>
+              <p class="project-desc">Reads fasta files of RNA sequences and performs a statistical test on the genes using OLS regression.</p>
+            </article>
 
-<body class="preload-transitions colorscheme-dark">
-  
+            <article class="project">
+              <p class="project-meta">
+                <span class="language">Jupyter Notebook</span>
+                <span class="stars">0 stars</span>
+              </p>
+              <h3>
+                <a href="https://github.com/sauravanand542/Fetch-rewards-assessment">Fetch-rewards-assessment<span class="visually-hidden"> on GitHub</span></a>
+              </h3>
+              <p class="project-desc">Jupyter notebook that loads JSON into PostgreSQL and answers data-quality, SQL, and stakeholder questions for a Fetch Rewards assessment. The repo also includes an ER diagram.</p>
+            </article>
 
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      Saurav Anand
-    </a>
-    
-      <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
-      </label>
-      <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/about/">About</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/projects/">Projects</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/pictures/">Photography</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/contact/">Contact me</a>
-            </li>
-          
-        
-        
-      </ul>
-    
-  </section>
-</nav>
+            <article class="project">
+              <p class="project-meta">
+                <span class="language">Jupyter Notebook</span>
+                <span class="stars">0 stars</span>
+              </p>
+              <h3>
+                <a href="https://github.com/sauravanand542/Job-salary-prediction">Job-salary-prediction<span class="visually-hidden"> on GitHub</span></a>
+              </h3>
+              <p class="project-desc">Notebooks that scrape job listings and load them into an Azure database with an ETL pipeline. The README reports 188,789 jobs collected over a week, and links a write-up and a Tableau dashboard.</p>
+            </article>
 
+            <article class="project">
+              <p class="project-meta">
+                <span class="language">R Markdown</span>
+                <span class="stars">0 stars</span>
+              </p>
+              <h3>
+                <a href="https://github.com/sauravanand542/Data-Analytics-Projects">Data-Analytics-Projects<span class="visually-hidden"> on GitHub</span></a>
+              </h3>
+              <p class="project-desc">R Markdown notebooks that explore Lending Club loans and fit models to predict loan outcomes, plus a sentiment analysis of Yelp reviews. The Lending Club EDA and Yelp files list Li Lin, Saurav Anand, and Abhishek Biswas as authors.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
 
-    <div class="content">
-      
-  <section class="container centered">
-  <div class="about">
-    
-  
-    <div class="avatar"><img src="/images/Black bg dp.jpg" alt="avatar"></div>
-  
-
-
-
-
-    <h1>Saurav Anand</h1>
-
-<h2>Data Scientist<br>Photographer<br></h2>
-
-
-
-    
-<ul>
-  
-    
-      <li>
-        <a href="https://github.com/sauravanand542/Data-Analytics-Projects" aria-label="Github"   >
-          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-  
-    
-      <li>
-        <a href="https://www.linkedin.com/in/saurav-anand-2b3059148/" aria-label="LinkedIn"   >
-          <i class="fa fa-2x fa-linkedin" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-  
-</ul>
-
-  </div>
-
-  
-
-</section>
-
-
-    </div>
-
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-     Saurav Anand 
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
-
-  </main>
-
-  
-
-  
-  
-  <script src="/js/coder.min.236049395dc3682fb2719640872958e12f1f24067bb09c327b233e6290c7edac.js" integrity="sha256-I2BJOV3DaC&#43;ycZZAhylY4S8fJAZ7sJwyeyM&#43;YpDH7aw="></script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</body>
-
+    <footer class="site-footer" id="contact">
+      <div class="wrap contact">
+        <h2 id="contact-heading">Contact</h2>
+        <p><a href="https://github.com/sauravanand542" rel="me">github.com/sauravanand542</a></p>
+        <p class="copyright">© 2026 Saurav Anand</p>
+      </div>
+    </footer>
+    <script src="/main.js"></script>
+  </body>
 </html>
