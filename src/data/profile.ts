@@ -37,6 +37,8 @@
  * join date, and public repository count are from the GitHub API for
  * @sauravanand542. Project copy, tags, and links are from those public
  * repositories (source, dependencies, and READMEs), fetched the same day.
+ * saas-realtime-analytics was read from that public repository on 2026-10-03.
+ * Its star and fork counts are omitted so they are not dated to this snapshot.
  */
 
 export interface ProfileLink {
@@ -175,6 +177,11 @@ export const profile = {
         "Delta Lake",
         "DuckDB",
         "Airflow",
+        "Snowflake",
+        "dbt",
+        "Kafka",
+        "Debezium",
+        "Terraform",
         "PostgreSQL",
         "SQLAlchemy",
         "Selenium",
@@ -185,6 +192,7 @@ export const profile = {
       items: [
         "Power BI",
         "Tableau",
+        "Streamlit",
         "Excel",
         "SAP",
         "pandas",
@@ -221,8 +229,51 @@ export const profile = {
   ] as SkillGroup[],
   projects: [
     {
-      title: "codebase-md",
+      title: "saas-realtime-analytics",
       featured: true,
+      language: "Python",
+      repo: "https://github.com/sauravanand542/saas-realtime-analytics",
+      links: [
+        {
+          label: "Watch demo (2 min)",
+          href: "https://github.com/sauravanand542/saas-realtime-analytics/blob/main/docs/demo/saas-realtime-analytics-demo.mp4",
+        },
+      ],
+      tags: [
+        "Python",
+        "Postgres",
+        "Snowflake",
+        "dbt",
+        "Airflow",
+        "Terraform",
+        "Kafka",
+        "Debezium",
+        "Spark",
+        "DuckDB",
+        "Streamlit",
+        "Docker",
+      ],
+      summary:
+        "A tested analytics pipeline that turns SaaS app data into trustworthy revenue and churn metrics in Snowflake, with a quality gate that blocks bad data from reaching the dashboard.",
+      points: [
+        {
+          label: "Problem",
+          text: "SaaS revenue metrics (MRR, churn, plan changes) must be right, but querying the production database slows the product, and untested ad-hoc numbers let bad data reach leadership.",
+        },
+        {
+          label: "Approach",
+          text: "Postgres stays the system of record. Incremental batch ingest, with a lookback window and upserts, lands raw tables in Snowflake. dbt builds staging, intermediate, and marts: a monthly MRR bridge, SCD2 subscriptions, and incremental logins, with tests as a publish gate orchestrated by Airflow. A change data capture path uses Debezium, Kafka, and Spark. Terraform provisions Snowflake as code, and DuckDB runs the stack locally for free. A Streamlit and Plotly dashboard reads only the published marts.",
+        },
+        {
+          label: "Outcome",
+          text: "Ran end to end on Snowflake: 3,196 raw rows ingested, and all 34 dbt mart tests passed. An injected negative-MRR record was caught by tests and blocked from publishing, and the marts kept the last good numbers. Local CDC measured about 0.6 to 1.3 seconds of commit-to-warehouse lag. CI covers lint, dbt on DuckDB, Terraform validation, and CDC images.",
+        },
+      ],
+      demonstrated:
+        "End-to-end data platform design, including warehouse modeling, data quality gates, orchestration, CDC, and infrastructure as code.",
+    },
+    {
+      title: "codebase-md",
       language: "Python",
       license: "MIT",
       stars: 3,
